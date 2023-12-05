@@ -5,28 +5,24 @@
 </template>
 
 <script>
-import axios from 'axios'
+import {loginAPI} from '../http/api'
 export default {
  data() {
-	 return {};
+	 return {
+		inof:{
+			mobile: "13800000002",
+  		password: 'hm#qd@23!'
+		}
+	 };
  },
  methods: {},
  computed: {},
  filters: {},
  watch: {},
 	created() {
-  console.log(process.env)
-  axios
-   .post(process.env.VUE_APP_IDENT + "/sys/login", {
-    mobile: "17764049967",
-    password: 123456
-   })
-   .then((res) => {
-    console.log(res)
-   })
-   .catch((err) => {
-    console.log(err)
-   })
+	loginAPI(this.inof).then(res=>{
+		console.log(res);
+	})
  }
 };
 </script>

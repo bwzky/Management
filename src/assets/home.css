@@ -1,0 +1,193 @@
+.el-aside {
+  background-color: #4979fc;
+  height: 100vh;
+
+  img {
+    margin: 0 auto;
+  }
+}
+.el-main {
+  margin: 0;
+  padding: 0;
+  background-color: #fcfcfc;
+  height: 100vh;
+  overflow-y: scroll;
+  .top {
+    width: 100%;
+    background-color: #5788fd;
+    height: 40px;
+    line-height: 40px;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
+    box-sizing: border-box;
+    .left {
+      .s1 {
+        margin-left: 16px;
+      }
+      .s2 {
+        margin-left: 15px;
+        background-color: #84a9fe;
+        padding: 3px 5px;
+        box-sizing: border-box;
+        border-radius: 10px;
+        font-size: 14px;
+      }
+    }
+  }
+  .mid {
+    width: 100%;
+    height: 30px;
+    background-color: #fff;
+    box-shadow: 0 0 3px #ccc;
+  }
+  .content {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    .title {
+      padding: 15px;
+      box-sizing: border-box;
+      background-color: #fff;
+      border-radius: 5px;
+      box-shadow: 0 0 3px #ccc;
+      height: 120px;
+    }
+    .foot {
+      margin-top: 15px;
+      display: flex;
+      justify-content: space-between;
+      .l {
+        width: 52%;
+        height: 500px;
+        .l_date {
+          width: 100%;
+          height: 520px;
+          border-radius: 5px;
+          box-shadow: 0 0 3px #ccc;
+          background-color: #fff;
+          padding: 15px;
+          p {
+            padding-left: 15px;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 10px;
+            font-size: 19px;
+            /* // box-sizing: border-box; */
+          }
+        }
+        .l_desc {
+          margin-top: 15px;
+          height: 450px;
+          border-radius: 5px;
+          box-shadow: 0 0 3px #ccc;
+          background-color: #fff;
+          padding: 15px;
+          h5 {
+            padding-left: 15px;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 10px;
+          }
+          .pad {
+            padding: 0 30px;
+            .text {
+              padding: 30px;
+              border-bottom: 1px solid #ccc;
+              position: relative;
+              padding-left: 60px;
+              .o {
+                span {
+                  color: #4979fc;
+                }
+                img {
+                  position: absolute;
+                  left: 0px;
+                  top: 20px;
+                  width: 50px;
+                }
+              }
+              .t {
+                margin-top: 25px;
+              }
+            }
+          }
+        }
+      }
+      .r {
+        width: 47.2%;
+        .title_two {
+          width: 80px;
+          font-size: 19px;
+          padding-bottom: 5px;
+          border-bottom: 3px solid #8a97f8;
+        }
+        .r_one {
+          height: 160px;
+          border-radius: 5px;
+          box-shadow: 0 0 3px #ccc;
+          background-color: #fff;
+          padding: 30px;
+					.nav{
+						margin-top: 24px;
+						width: 100%;
+						display: flex;
+						div{
+							margin-right: 10px;
+							border: 1px solid #ccc;
+							padding: 10px 20px;
+							border-radius: 3px;
+						}
+						div:hover{
+							margin-right: 10px;
+							padding: 10px 20px;
+							border-radius: 3px;
+							border: 1px solid #c6e2ff;
+							background-color: #ecf5ff;
+							color: #0095ff;
+						}
+					}
+        }
+        .r_two {
+          margin-top: 15px;
+          height: 450px;
+          border-radius: 5px;
+          box-shadow: 0 0 3px #ccc;
+          background-color: #fff;
+          padding: 20px;
+          p {
+            padding-left: 15px;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 10px;
+            font-size: 19px;
+            /* // box-sizing: border-box; */
+          }
+        }
+        .r_three {
+				/* // text-align: center; */
+          margin-top: 15px;
+          height: 240px;
+          border-radius: 5px;
+          box-shadow: 0 0 3px #ccc;
+          background-color: #fff;
+          padding: 30px;
+
+
+        }
+					.img1{
+						margin-top: 15px;
+						margin-left: 85px;
+					}
+				.uname{
+						width: 89%;
+						margin-top: 15px;
+						margin-left: 80px;
+						display: flex;
+						justify-content: space-between;
+						.name{
+							margin-right: 100px;
+						}
+					}
+      }
+    }
+  }
+}
