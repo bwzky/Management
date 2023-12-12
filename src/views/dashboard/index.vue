@@ -2,7 +2,7 @@
 	<div>
 		<div class="content">
           <div class="title">
-						<img src="../assets/head.jpg" alt="">
+						<img src="@/assets/head.jpg" alt="">
 						<div class="text">
 							<p class="p1">早安，管理员，祝你开心每一天!</p>
 							<p class="p2">管理员|传智博客—总裁办</p>
@@ -20,7 +20,7 @@
                 <div class="pad">
                   <div class="text">
                     <div class="o">
-                      <img src="../assets/img.jpeg" alt="" />
+                      <img src="@/assets/img.jpeg" alt="" />
                       <span>朱继柳</span>
                       发布了第1期"传智大讲堂"互动讨论获奖名单公布
                     </div>
@@ -28,7 +28,7 @@
                   </div>
                   <div class="text">
                     <div class="o">
-                      <img src="../assets/img.jpeg" alt="" />
+                      <img src="@/assets/img.jpeg" alt="" />
                       <span>朱继柳</span>
                       发布了第1期"传智大讲堂"互动讨论获奖名单公布
                     </div>
@@ -36,7 +36,7 @@
                   </div>
                   <div class="text">
                     <div class="o">
-                      <img src="../assets/img.jpeg" alt="" />
+                      <img src="@/assets/img.jpeg" alt="" />
                       <span>朱继柳</span>
                       发布了第1期"传智大讲堂"互动讨论获奖名单公布
                     </div>
@@ -61,7 +61,7 @@
               </div>
               <div class="r_three">
                 <div class="title_two">帮助链接</div>
-								<img src="../assets/icon.png" alt="">
+								<img src="@/assets/icon.png" alt="">
 								<div class="uname">
 									<div class="name">入门指南</div>
 									<div class="name">在线帮助手册</div>

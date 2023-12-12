@@ -8,6 +8,9 @@ import '../src/assets/index.css'
 
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
+import '../style/element-variables.scss'
+
+
 
 // Vue.component(Button.name, Button);
 // Vue.component(Select.name, Select);

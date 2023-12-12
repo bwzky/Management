@@ -1,7 +1,7 @@
 import axios from "axios";
 import { MessageBox, Loading } from "element-ui"
 import DEFAULTSTATUS from "./default";
-import {getToken} from './cookies'
+import {getToken,removeYoken} from './cookies'
 let loadingInstance ;
 
 const http = axios.create({
@@ -20,7 +20,10 @@ const http = axios.create({
 http.interceptors.request.use(
  (config) => {
 	config.headers["Authorization"]="Bearer "+getToken()
-  loadingInstance = Loading.service({ fullscreen: true })
+  loadingInstance = Loading.service({
+		fullscreen: true,
+		// target: '.el-main'
+	})
 
   return config
  },
@@ -37,7 +40,7 @@ http.interceptors.response.use(
   loadingInstance.close()
   if (response.data && response.data.code === 10002) {
 		// 401, token失效
-		removeToken()
+		removeYoken()
 		// 跳转到登录页面
 		router.push({
 			name: "login"
@@ -52,6 +55,15 @@ http.interceptors.response.use(
   if (error && error.response) {
    /**后端返回的报错的信息 */
    message = error.response.data.message
+
+	 if(error.response.status==401){
+		removeYoken()
+
+		router.push({
+			name:'login'
+		})
+	 }
+
  // 401, token失效
     switch (
 	    error.response.status // 跨域存在获取到的状态码的情况, status(随后端定义变化而变化,code)

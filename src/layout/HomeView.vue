@@ -1,33 +1,17 @@
 <template>
 	<div class="home">
     <el-container>
-      <el-aside width="160px">
-        <img src="../assets/logo.png" alt="">
-				<el-menu
-      default-active="2"
-      class="#cccccc"
-      background-color="#5182fc"
-      text-color="#fff"
-      active-text-color="#fff"
-			router>
-          <el-menu-item index="./HomePage">首页</el-menu-item>
-          <el-menu-item index="1-2">员工</el-menu-item>
-          <el-menu-item index="1-3">公司设置</el-menu-item>
-          <el-menu-item index="1-4">权限设置</el-menu-item>
-          <el-menu-item index="1-5">社保</el-menu-item>
-          <el-menu-item index="1-6">审批</el-menu-item>
-          <el-menu-item index="1-7">考勤</el-menu-item>
-          <el-menu-item index="1-8">工资</el-menu-item>
-          <el-menu-item index="./framework">组织框架</el-menu-item>
-    </el-menu>
-      </el-aside>
+			<Left :flag="flag" :isCollapse="isCollapse"></Left>
       <el-main>
         <div class="top">
           <div class="left">
-            <i class="el-icon-s-fold" ></i>
-            <!-- <i class="el-icon-s-unfold"></i> -->
+
+            <i class="el-icon-s-fold" :label="false" @click="arr" v-show="flag==false"></i>
+            <i class="el-icon-s-unfold" :label="true" @click="add" v-show="flag==true"></i>
+
             <span class="s1">江苏传智播客教育科技股份有限公司</span>
             <span class="s2">体验版</span>
+            <el-button type="primary" icon="el-icon-full-screen" @click="goFullScreen"></el-button>
           </div>
           <div class="right">
 						<img class="head" src="../assets/head.jpg" alt="">
@@ -52,21 +36,53 @@
 </template>
 
 <script>
+import screenfull from "screenfull"
 import {roleAPI} from '../http/api'
-
+import Left from '../layout/Left.vue'
 export default {
  data() {
 	 return {
-		list:{}
+		list:{},
+		flag:false,
+		isCollapse: true,
+		isfull: false
 	 };
  },
  methods: {
-
+	arr(){
+		this.flag=true
+		this.isCollapse=false
+	},
+	add(){
+		this.flag=false
+		this.isCollapse=true
+	},
+  goFullScreen(){
+		screenfull.toggle()
+      if (screenfull.isEnabled) {
+        screenfull.on("change", () => {
+          this.isfull = screenfull.isFullscreen
+        })
+      }
+  },
+	change() {
+      console.log("chang")
+      this.isfull = screenfull.isFullscreen
+      console.log(this.isfull)
+    },
+		destroyed() {
+    screenfull.off("change", () => {
+      console.log("销毁")
+    })
+  }
  },
 
  computed: {},
  filters: {},
  watch: {},
+ components:{
+	Left
+ },
  created(){
 	roleAPI().then(res=>{
 		console.log(res);
@@ -78,14 +94,11 @@ export default {
 
 <style lang="scss" scoped>
 
-.el-aside {
-  background-color: #4979fc;
-  height: 100vh;
 
-  img {
-    margin: 0 auto;
+.el-menu-vertical-demo:not(.el-menu--collapse) {
+    width: 200px;
+    min-height: 400px;
   }
-}
 .el-main {
   margin: 0;
   padding: 0;
@@ -94,9 +107,9 @@ export default {
   overflow-y: scroll;
   .top {
     width: 100%;
-    background-color: #5788fd;
-    height: 40px;
-    line-height: 40px;
+    background-color: #4b7cfc;
+    height: 50px;
+    line-height: 50px;
     color: white;
     display: flex;
     justify-content: space-between;
@@ -106,15 +119,20 @@ export default {
 
       .s1 {
         margin-left: 16px;
+				font-size: 19px;
       }
       .s2 {
+				margin-top: 5px;
         margin-left: 15px;
         background-color: #84a9fe;
         padding: 3px 5px;
         box-sizing: border-box;
         border-radius: 10px;
-        font-size: 14px;
+        font-size: 19px;
       }
+			i{
+				font-size: 20px;
+			}
     }
 		.right{
 			width: 70px;
@@ -129,6 +147,7 @@ export default {
 			}
 		}
   }
+
   .mid {
     width: 100%;
     height: 30px;
@@ -137,23 +156,7 @@ export default {
   }
 
 }
-.el-dropdown-link {
-    cursor: pointer;
-  }
-	.el-menu-item:hover{
-	  background: #cccccc!important;
-	  color: #1c88cf!important;
-	}
-	// .el-submenu__title:hover {
-	//   background: #1c88cf!important;
-	//   color: #fff!important;
-	// }
-	// .el-menu-item.is-active {
-	//   background: #1c88cf!important;
-	//   color: #fff!important;
-	// }
-	// .el-submenu__title.is-active {
-	//   background: #1c88cf!important;
-	//   color: #fff!important;
-	// }
+
+
+
 </style>
